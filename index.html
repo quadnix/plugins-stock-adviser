@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home - Stock Adviser</title>
+
+  <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+<div class="container">
+  <ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="when-to-sell-tab" data-toggle="tab" href="#when-to-sell" role="tab"
+         aria-controls="when-to-sell" aria-selected="true">Sell Adviser</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="coming-soon-tab" data-toggle="tab" href="#coming-soon" role="tab"
+         aria-controls="coming-soon" aria-selected="false">More Advises</a>
+    </li>
+  </ul>
+
+  <div class="tab-content m-2" id="serviceTabs">
+    <div class="tab-pane fade show active" id="when-to-sell" role="tabpanel" aria-labelledby="when-to-sell-tab">
+      <div class="jumbotron jumbotron-fluid p-4">
+        <div class="container">
+          <h1 class="display-4">When should you sell?</h1>
+          <p>
+            <label class="text-primary"><b>Pro Tip 1:</b></label>
+            <br>
+            If you made an initial investment,
+            you can easily figure out the selling amount in order to make a profit.
+            <br>
+            Fill out investment, target, and bought price (the first 3 inputs) to calculate.
+          </p>
+
+          <p>
+            <label class="text-primary"><b>Pro Tip 2:</b></label>
+            <br>
+            In case you bought at a higher price, and the price starts to drop,
+            you can sell at a lower price, and buy again at an even lower price.
+            In order to calculate the selling amount now to make an overall profit,
+            please fill out all fields to calculate.
+          </p>
+        </div>
+      </div>
+
+      <form id="when-to-sell-form" class="m-2">
+        <div class="container-fluid px-0">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="initialInvestmentLabel">
+                    Initial Investment &nbsp;
+                    <i class="fa fa-question-circle"
+                       data-toggle="tooltip" data-placement="top" title="How much money did you invest?"></i>
+                    &nbsp; $
+                  </span>
+                </div>
+                <label for="initialInvestment"></label>
+                <input type="text" class="form-control" id="initialInvestment"
+                       aria-describedby="initialInvestmentLabel" required>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="targetIncomeLabel">
+                    Target Income &nbsp;
+                    <i class="fa fa-question-circle"
+                       data-toggle="tooltip" data-placement="top" title="How much money would you like to make?"></i>
+                    &nbsp; $
+                  </span>
+                </div>
+                <label for="targetIncome"></label>
+                <input type="text" class="form-control" id="targetIncome" aria-describedby="targetIncomeLabel" required>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="buyNowLabel">
+                    Buy Price &nbsp;
+                    <i class="fa fa-question-circle"
+                       data-toggle="tooltip" data-placement="top" title="At what price do you intend to buy?"></i>
+                    &nbsp; $
+                  </span>
+                </div>
+                <label for="buyNow"></label>
+                <input type="text" class="form-control" id="buyNow" aria-describedby="buyNowLabel" required>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-fluid px-0">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="buyInitialLabel">
+                    Previously Bought at Price &nbsp;
+                    <i class="fa fa-question-circle"
+                       data-toggle="tooltip" data-placement="top"
+                       title="(Optional) At what price did you buy previously?"></i>
+                    &nbsp; $
+                  </span>
+                </div>
+                <label for="buyInitial"></label>
+                <input type="text" class="form-control" id="buyInitial" aria-describedby="buyInitialLabel">
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="sellInitialLabel">
+                    Previously Sold at Price &nbsp;
+                    <i class="fa fa-question-circle"
+                       data-toggle="tooltip" data-placement="top"
+                       title="(Optional) At what price did you sell previously?"></i>
+                    &nbsp; $
+                  </span>
+                </div>
+                <label for="sellInitial"></label>
+                <input type="text" class="form-control" id="sellInitial" aria-describedby="sellInitialLabel">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button type="reset" id="when-to-sell-reset" class="btn btn-sm btn-warning"
+                onclick="resetWhenToSell()">Reset
+        </button>
+        <button type="submit" class="btn btn-sm btn-primary ml-2"
+                onclick="calculateWhenToSell()">Calculate
+        </button>
+
+        <span id="when-to-sell-calculate" class="ml-3" hidden>
+          <span>You should consider selling at</span>
+          <span class="text-success">&nbsp;$<b id="when-to-sell-answer"></b>&nbsp;</span>
+          <span>or higher.</span>
+        </span>
+      </form>
+    </div>
+
+    <div class="tab-pane fade" id="coming-soon" role="tabpanel" aria-labelledby="coming-soon-tab">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Coming Soon ...</h1>
+          <p class="lead">Fetching data ... <i class="fa fa-circle-o-notch fa-spin fa-fw"></i></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="public/environment.json"></script>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="public/js/app.js"></script>
+<script src="public/js/when-to-sell.js"></script>
+</body>
+</html>

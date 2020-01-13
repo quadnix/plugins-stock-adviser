@@ -1,0 +1,19 @@
+{
+  "author": "Rahul Chaudhary",
+  "name": "plugins-stock-adviser",
+  "description": "Simple stocks calculator.",
+  "private": true,
+  "version": "0.0.1",
+  "dependencies": {
+    "bootstrap": "~4.4.1",
+    "font-awesome": "~4.7.0",
+    "jquery": "~3.4.1",
+    "popper.js": "~1.16.0"
+  },
+  "devDependencies": {
+    "http-server": "~0.12.1"
+  },
+  "scripts": {
+    "start": "http-server ."
+  }
+}
