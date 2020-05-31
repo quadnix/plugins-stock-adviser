@@ -1,1 +1,1 @@
-environment = '{"host": "", "port": 80}'
+environment = '{"host": "backend.stockadviser-quadnix.engine.quadnix.com", "port": 80}'
