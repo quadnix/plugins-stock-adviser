@@ -4,6 +4,3 @@ phases:
   install:
     commands:
       - npm install --only=production
-  pre_build:
-    commands:
-      - mv .quadnix/environment.dev.json public/environment.json
