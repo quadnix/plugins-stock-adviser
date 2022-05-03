@@ -7,11 +7,11 @@
   "dependencies": {
     "bootstrap": "~4.4.1",
     "font-awesome": "~4.7.0",
-    "jquery": "~3.4.1",
-    "popper.js": "~1.16.0"
+    "jquery": "~3.6.0",
+    "popper.js": "~1.16.1"
   },
   "devDependencies": {
-    "http-server": "~0.12.1"
+    "http-server": "~14.1.0"
   },
   "scripts": {
     "start": "http-server ."
